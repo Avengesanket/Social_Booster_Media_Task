@@ -4,20 +4,28 @@ import dj_database_url
 from dotenv import load_dotenv
 import warnings
 
-IS_RENDER = os.getenv('RENDER', False)
-
-# Update ALLOWED_HOSTS
-if IS_RENDER:
-    ALLOWED_HOSTS = [os.getenv('RENDER_EXTERNAL_HOSTNAME')]
-else:
-    ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 BASE_DIR = Path(__file__).resolve().parent.parent
 dotenv_path = BASE_DIR / '.env'
 load_dotenv(dotenv_path)
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'dev-secret-key-change-in-production')
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+_render_host = os.getenv('RENDER_EXTERNAL_HOSTNAME')
+_env_allowed = os.getenv('ALLOWED_HOSTS', '')
+
+_allowed = []
+if _render_host:
+    _allowed.append(_render_host)
+
+if _env_allowed:
+    _allowed += [h.strip() for h in _env_allowed.split(',') if h.strip()]
+
+if DEBUG:
+    # helpful for local dev
+    _allowed += ['127.0.0.1', 'localhost']
+
+# deduplicate while preserving order
+ALLOWED_HOSTS = list(dict.fromkeys(_allowed)) if _allowed else ['127.0.0.1', 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
