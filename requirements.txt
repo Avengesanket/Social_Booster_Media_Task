@@ -3,4 +3,6 @@ djangorestframework
 psycopg2-binary
 python-dotenv
 dj-database-url
+gunicorn
+whitenoise
 requests
