@@ -1,0 +1,35 @@
+{% extends 'weatherapp/base.html' %}
+
+{% block content %}
+<h2>Add/Update City Temperature</h2>
+
+<form id="cityForm">
+    <div>
+        <label for="city">City Name:</label>
+        <input type="text" id="city" name="city" placeholder="Start typing city name..." autocomplete="off" required>
+        <div id="suggestions" class="suggestions"></div>
+    </div>
+    
+    <div style="margin-top: 15px;">
+        <label for="temp">Temperature (°C):</label>
+        <input type="number" id="temp" name="temp" step="0.1" placeholder="e.g., 25.5">
+    </div>
+    
+    <div style="margin-top: 15px;">
+        <button type="button" id="fetchBtn">Fetch Current Weather</button>
+        <button type="submit">Save</button>
+    </div>
+</form>
+
+<div id="result"></div>
+
+<div style="margin-top: 30px;">
+    <h3>Instructions:</h3>
+    <ul>
+        <li>Type a city name to see suggestions from saved cities</li>
+        <li>Click "Fetch Current Weather" to get live temperature data</li>
+        <li>Click "Save" to add or update the city in database</li>
+        <li>Visit <a href="/dashboard/">Dashboard</a> to view all records and visualizations</li>
+    </ul>
+</div>
+{% endblock %}

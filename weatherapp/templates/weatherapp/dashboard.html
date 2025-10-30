@@ -1,0 +1,38 @@
+{% extends 'weatherapp/base.html' %}
+
+{% block content %}
+<h2>📊 Dashboard & Data Visualization</h2>
+
+<div style="margin-bottom: 20px;">
+    <button id="refreshBtn">🔄 Refresh Data</button>
+    <a href="/export_csv/" style="margin-left: 10px; padding: 8px 15px; background: #28a745; color: white; text-decoration: none; border-radius: 4px;">📥 Download CSV</a>
+</div>
+
+<h3>All Records</h3>
+<table id="records">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>City</th>
+            <th>Temperature (°C)</th>
+            <th>Last Updated</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td colspan="5">Loading...</td></tr>
+    </tbody>
+</table>
+
+<div style="margin-top: 40px;">
+    <h3>📈 Temperature Chart (Last 20 Cities)</h3>
+    <canvas id="tempChart" style="max-height: 400px;"></canvas>
+</div>
+
+<div style="margin-top: 40px;">
+    <h3>📋 Summary Report</h3>
+    <div id="reportSection">
+        <p>Loading statistics...</p>
+    </div>
+</div>
+{% endblock %}
