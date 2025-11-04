@@ -1,8 +1,9 @@
-### 🌦️ Weather Web Application
+# 🌦️ Weather Web Application
 
 A Django-based weather application with Supabase integration, featuring CRUD operations, data visualization, and real-time weather data fetching.
+Link 🔗  https://weather-app-9veh.onrender.com
 
-# Prerequisites
+## Prerequisites
 
 - Python 3.8 or higher
 - pip (Python package manager)
@@ -11,9 +12,9 @@ A Django-based weather application with Supabase integration, featuring CRUD ope
 
 ## 🧩 Step-by-Step Setup Instructions
 
-# **Step 1: Install Python and pip**
+### **Step 1: Install Python and pip**
 
-# Windows:
+#### Windows:
 
 1. Download Python from [python.org/downloads](https://www.python.org/downloads/)
 2. During installation, check **“Add Python to PATH”**
@@ -23,7 +24,7 @@ A Django-based weather application with Supabase integration, featuring CRUD ope
    pip --version
    ```
 
-# macOS/Linux:
+#### macOS/Linux:
 
 ```bash
 # macOS (using Homebrew)
@@ -40,14 +41,14 @@ python3 --version
 pip3 --version
 ```
 
-# **Step 2: Create Project Directory**
+### **Step 2: Create Project Directory**
 
 ```bash
 mkdir weather_project
 cd weather_project
 ```
 
-# **Step 3: Create Virtual Environment**
+### **Step 3: Create Virtual Environment**
 
 ```bash
 # Windows
@@ -60,7 +61,7 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-# **Step 4: Create Project Structure**
+### **Step 4: Create Project Structure**
 
 ```bash
 # Create main directories
@@ -75,7 +76,7 @@ touch weatherapp/__init__.py
 touch weatherapp/migrations/__init__.py
 ```
 
-# **Step 5: Create requirements.txt**
+### **Step 5: Create requirements.txt**
 
 ```bash
 Django>=4.2
@@ -86,13 +87,13 @@ dj-database-url
 requests
 ```
 
-# **Step 6: Install Dependencies**
+### **Step 6: Install Dependencies**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-# **Step 7: Get Supabase Database URL**
+### **Step 7: Get Supabase Database URL**
 
 1. Go to https://supabase.com and sign up/login
 
@@ -105,7 +106,7 @@ pip install -r requirements.txt
 5. Copy the connection string format:
    postgresql://postgres:[password]@[host]:5432/postgres
 
-# **Step 8: Get OpenWeatherMap API Key**
+### **Step 8: Get OpenWeatherMap API Key**
 
 1. Go to https://openweathermap.org/api
 
@@ -117,7 +118,7 @@ pip install -r requirements.txt
 
 ⏳ Note: It may take 10–15 minutes for the key to activate.
 
-# **Step 9: Create .env File**
+### **Step 9: Create .env File**
 
 Create a .env file in the root directory:
 
@@ -142,7 +143,7 @@ OPENWEATHER_API_KEY=your_openweathermap_api_key_here
 python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 ```
 
-# **Step 10: Create Database Tables**
+### **Step 10: Create Database Tables**
 
 ```bash
 # Make migrations
@@ -154,13 +155,13 @@ python manage.py migrate
 
 ```
 
-# **Step 11: Run the Development Server**
+### **Step 11: Run the Development Server**
 
 ```
 python manage.py runserver
 ```
 
-# **Step 12: Access the Application**
+### **Step 12: Access the Application**
 
 - 🏠 Home: http://127.0.0.1:8000/
 - 📊 Dashboard: http://127.0.0.1:8000/dashboard/
@@ -168,7 +169,7 @@ python manage.py runserver
 
 ## 💡 How to Use
 
-# Adding Cities
+## Adding Cities
 
 - Go to Home page
 - Type a city name (e.g., “London”)
@@ -176,7 +177,7 @@ python manage.py runserver
 - Click “Save” to store it in the database
   City suggestions appear as you type (from saved cities)
 
-# Viewing Dashboard
+## Viewing Dashboard
 
 - Go to Dashboard page
 - See all saved cities in table format
